@@ -96,8 +96,8 @@ default_days   = 1095
 C=US
 ST='${STATE}'
 L='${CITY}'
-O=Watson Supply Chain
-OU=Supply Chain Insights Resolution Rooms
+O=Organization
+OU=Organization Unit
 CN='${DOMAIN}'
 
 [ req_ext ]
