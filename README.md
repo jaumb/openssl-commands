@@ -115,7 +115,7 @@ DIR=${DIR:-.} && mkdir -p ${DIR}/tmp/certs ${DIR}/tmp/crl && \
 echo 1000 > ${DIR}/tmp/serial && \
 touch ${DIR}/tmp/index.txt ${DIR}/tmp/index.txt.attr && \
 openssl ca -batch -keyfile ${CA_KEY} -cert ${CA_CERT} -in ${CSR_FILE} -out ${DIR}/signed-server-cert.pem -notext \
--subj "/CN=provision.np.wce.ibm.com/C=US/ST=Massachusetts/L=Littleton/O=IBM/OU=toscana" -config \
+-subj "/CN=common-name.com/C=US/ST=STATE/L=CITY/O=Organization/OU=Organization Business Unit" -config \
 <(echo '[ ca ]
 default_ca     = CA_default
 
