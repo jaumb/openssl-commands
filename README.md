@@ -202,11 +202,11 @@ done
 
 # generate rootCA key/cert
 openssl genrsa -aes256 -out rootCA/rootCA.key 4096
-openssl req -config rootCA/openssl.conf -new -nodes -x509 -days 3650 -key rootCA/rootCA.key -sha256 -extensions v3_req -out rootCA/rootCA.crt -subj '/CN=Root-ca/O=Watson Customer Engagement/OU=Supply Chain Insights (Root CA)'
+openssl req -config rootCA/openssl.conf -new -nodes -x509 -days 3650 -key rootCA/rootCA.key -sha256 -extensions v3_req -out rootCA/rootCA.crt -subj '/CN=Root-ca/O=Organization/OU=Organization Business Unit (Root CA)'
 
 # generate intermediate key/cert signed by the rootCA certificate
 openssl genrsa -aes256 -out pki/pki.key 4096
-openssl req -config pki/openssl.conf -days 1825 -sha256 -new -key pki/pki.key -out pki/pki.csr -subj '/CN=Intermediate-ca/O=Watson Customer Engagement/OU=Supply Chain Insights (Intermediate CA)'
+openssl req -config pki/openssl.conf -days 1825 -sha256 -new -key pki/pki.key -out pki/pki.csr -subj '/CN=Intermediate-ca/O=Organization/OU=Organization Business Unit (Intermediate CA)'
 openssl ca -batch -config rootCA/openssl.conf -keyfile rootCA/rootCA.key -cert rootCA/rootCA.crt -extensions v3_req -notext -md sha256 -in pki/pki.csr -out pki/pki.crt
 
 # create the trust chain bundle that will be stored in vault
